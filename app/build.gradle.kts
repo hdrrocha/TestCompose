@@ -27,6 +27,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -66,5 +67,19 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.2")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
+
+//    implementation("com.google.code.gson:gson:2.8.8")
+    implementation("io.insert-koin:koin-android:3.2.0")
+
+    implementation("io.insert-koin:koin-androidx-viewmodel:3.2.0")
+    implementation("org.koin:koin-android-viewmodel:3.1.2")
+    implementation("androidx.paging:paging-compose:1.0.0-alpha01")
+//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
 }
