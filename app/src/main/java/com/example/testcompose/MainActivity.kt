@@ -1,5 +1,6 @@
 package com.example.testcompose
 
+import PokemonListViewModel
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,17 +10,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.testcompose.superhero.SuperHeroGridView
 import com.example.testcompose.ui.theme.TestComposeTheme
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val viewModel: PokemonListViewModel = getViewModel()
             TestComposeTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SuperHeroGridView()
+                    SuperHeroGridView(viewModel)
                 }
             }
         }

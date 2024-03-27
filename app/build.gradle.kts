@@ -1,16 +1,21 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+//    kotlin("android") version "1.5.21"
+//    kotlin("kapt") version "1.5.21"
+//    kotlin("plugin.serialization") version "1.9.10"
+
 }
 
 android {
     namespace = "com.example.testcompose"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.testcompose"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -67,19 +72,28 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    debugImplementation("androidx.compose.runtime:runtime-livedata:1.0.5")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:4.9.2")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
 
-//    implementation("com.google.code.gson:gson:2.8.8")
-    implementation("io.insert-koin:koin-android:3.2.0")
 
-    implementation("io.insert-koin:koin-androidx-viewmodel:3.2.0")
-    implementation("org.koin:koin-android-viewmodel:3.1.2")
-    implementation("androidx.paging:paging-compose:1.0.0-alpha01")
-//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+//    val pagingVersion = "3.2.1"
+//
+//    // Paging
+//    implementation("androidx.paging:paging-compose:$pagingVersion")
+//    implementation("androidx.pa ging:paging-common-ktx:$pagingVersion")
+//    implementation("androidx.paging:paging-runtime-ktx:$pagingVersion")
+
+    // Moshi
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
+
+    implementation("io.insert-koin:koin-android:3.5.3")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
+
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation("com.github.bumptech.glide:compiler:4.12.0")
 
 }
